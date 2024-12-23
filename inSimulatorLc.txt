@@ -1,0 +1,32 @@
+.ORIG x3000
+LD R2, NUM
+AND R5, R5, #0  ;write in it the result
+AND R6, R6, #0  ;counter for bites
+ADD R6, R6, #1
+LOOP
+ADD R3, R2, #0  ;check if the number finished
+BRz DONE
+AND R7, R7, #0  ;multiple R5=result by 10
+ADD R7, R7, #10 ;R7 is counter
+AND R3, R3, #0  ;R3 is temporary used
+LOOP10 
+ADD R3, R3, R5
+ADD R7, R7, #-1
+BRp LOOP10
+AND R5, R5, #0
+ADD R5, R3, #0  ;now R5 = R5*10
+
+AND R3, R2, R6
+BRz NEXT  
+ADD R5, R5, #1
+NOT R3, R3
+AND R2, R2, R3
+NEXT
+ADD R6, R6, R6
+ADD R3, R2, #0  ;check if the number finished
+BRp LOOP
+ST R5, ARRAY
+DONE HALT
+NUM .FILL 157
+ARRAY .BLKW 3
+.END
