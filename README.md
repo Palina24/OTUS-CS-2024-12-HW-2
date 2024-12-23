@@ -4,6 +4,6 @@ and it reverces the two-based representation
 of given number.
 
 In file "inSimuatorLc.txt" I tried to do the same 
-on LC-3 simulator, but the program works correct 
+on LC-3 simulator https://spacetech.github.io/LC3Simulator/# , but the program works correct 
 only for odd numbers less than 32. The given number
 is R2, the result is R5.
